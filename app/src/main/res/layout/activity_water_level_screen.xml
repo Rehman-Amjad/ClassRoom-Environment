@@ -50,22 +50,40 @@
         android:layout_marginRight="100dp"
         android:src="@drawable/backgroun_icon" />
 
-    <ImageView
-        android:id="@+id/img"
+
+    <RelativeLayout
+        android:id="@+id/llIng"
         android:layout_width="match_parent"
-        android:layout_height="200dp"
+        android:layout_height="wrap_content"
         android:layout_below="@+id/img1"
         android:layout_centerInParent="true"
-        android:src="@drawable/water_level"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp"
-        android:visibility="visible" />
+        >
+
+        <ImageView
+            android:id="@+id/gifImageView"
+            android:layout_width="100dp"
+            android:layout_marginLeft="20dp"
+            android:visibility="gone"
+            android:layout_height="100dp" />
+
+        <ImageView
+            android:id="@+id/img"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:src="@drawable/water_level"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:visibility="visible" />
+
+    </RelativeLayout>
+
+
 
     <ImageView
         android:id="@+id/img2"
         android:layout_width="30dp"
         android:layout_height="30dp"
-        android:layout_below="@+id/img"
+        android:layout_below="@+id/llIng"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="70dp"
         android:layout_marginTop="40dp"

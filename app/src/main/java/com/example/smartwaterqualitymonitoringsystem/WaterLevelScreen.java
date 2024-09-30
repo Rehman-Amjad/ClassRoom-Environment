@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -20,7 +21,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class WaterLevelScreen extends AppCompatActivity implements View.OnClickListener {
 
-    ImageView img_LoginBack,img;
+    ImageView img_LoginBack,img,gifImageView;
     TextView tv_value,tv_date,tv_time,tv_wait;
     Button btn_back;
     FirebaseDatabase database;
@@ -35,7 +36,6 @@ public class WaterLevelScreen extends AppCompatActivity implements View.OnClickL
 
         initView();
         showDataFormFirebse();
-
 
         img_LoginBack.setOnClickListener(this::onClick);
         btn_back.setOnClickListener(this::onClick);
@@ -61,11 +61,17 @@ public class WaterLevelScreen extends AppCompatActivity implements View.OnClickL
                 {
                     img.setImageResource(R.drawable.low);
                     tv_value.setText("Water Tank is low level");
+                    gifImageView.setVisibility(View.VISIBLE);
+                    Glide.with(WaterLevelScreen.this)
+                            .asGif()  // Indicate that we are loading a GIF
+                            .load(R.drawable.warning)  // Replace with your actual drawable resource name
+                            .into(gifImageView);
 
                 }else if (value.equals("1"))
                 {
                     img.setImageResource(R.drawable.normal);
                     tv_value.setText("Water Tank is high level");
+                    gifImageView.setVisibility(View.GONE);
                 }
                 img.setVisibility(View.VISIBLE);
 
@@ -108,6 +114,7 @@ public class WaterLevelScreen extends AppCompatActivity implements View.OnClickL
         tv_time=findViewById(R.id.tv_time);
         tv_wait=findViewById(R.id.tv_wait);
         img=findViewById(R.id.img);
+        gifImageView=findViewById(R.id.gifImageView);
     }
 
     @Override
