@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".WaterLevelScreen">
+
+    <RelativeLayout
+        android:id="@+id/topLayout"
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:paddingLeft="25dp"
+        android:paddingRight="25dp"
+        android:paddingTop="25dp"
+        android:background="@color/Dark_Orange"
+
+        >
+
+
+        <ImageView
+            android:id="@+id/img_LoginBack"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/back_arrow" />
+
+
+        <TextView
+            android:id="@+id/login_text1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/img_LoginBack"
+            android:layout_alignParentLeft="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="25dp"
+            android:fontFamily="sans-serif-black"
+            android:text="Water Level"
+            android:textColor="@color/white"
+            android:textSize="28sp" />
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/img1"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_below="@id/topLayout"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="-6dp"
+        android:layout_marginEnd="83dp"
+        android:layout_marginRight="100dp"
+        android:src="@drawable/backgroun_icon" />
+
+    <ImageView
+        android:id="@+id/img"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_below="@+id/img1"
+        android:layout_centerInParent="true"
+        android:src="@drawable/water_level"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:visibility="visible" />
+
+    <ImageView
+        android:id="@+id/img2"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_below="@+id/img"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="70dp"
+        android:layout_marginTop="40dp"
+        android:src="@drawable/drops" />
+
+    <TextView
+        android:id="@+id/tv_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/img2"
+        android:layout_below="@+id/img"
+        android:text=""
+        android:textSize="14sp"
+
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/Dark_Orange"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:id="@+id/img3"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_date"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="70dp"
+        android:layout_below="@+id/img2"
+        />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/img3"
+        android:layout_below="@+id/img2"
+        android:text=""
+        android:textSize="14sp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/Dark_Orange"
+        android:textStyle="bold"
+        />
+
+    <ImageView
+        android:id="@+id/img4"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:src="@drawable/ic_time"
+        android:layout_alignParentLeft="true"
+        android:layout_marginLeft="70dp"
+        android:layout_below="@+id/img3"
+        />
+
+    <TextView
+        android:id="@+id/tv_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/img4"
+        android:layout_below="@+id/img3"
+        android:text=""
+        android:textSize="14sp"
+        android:layout_marginTop="25dp"
+        android:layout_marginLeft="20dp"
+        android:textColor="@color/Dark_Orange"
+        android:textStyle="bold"
+        />
+
+    <TextView
+        android:id="@+id/tv_wait"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/img4"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="25dp"
+        android:text="Please Wait"
+        android:textColor="@color/Dark_Orange"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/btn_back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_wait"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:text="back" />
+
+
+</RelativeLayout>

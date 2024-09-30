@@ -1,0 +1,30 @@
+{
+  "project_info": {
+    "project_number": "238074811885",
+    "firebase_url": "https://smart-hydroponics-system-6270d-default-rtdb.firebaseio.com",
+    "project_id": "smart-hydroponics-system-6270d",
+    "storage_bucket": "smart-hydroponics-system-6270d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:238074811885:android:9133902bb6721ecbb503e4",
+        "android_client_info": {
+          "package_name": "com.example.smartwaterqualitymonitoringsystem"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC91rVSNvybAmphxzK1peY_eMd1d3arEAQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
