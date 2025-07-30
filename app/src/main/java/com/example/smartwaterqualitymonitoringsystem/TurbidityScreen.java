@@ -102,13 +102,9 @@ public class TurbidityScreen extends AppCompatActivity implements View.OnClickLi
     {
         int id =view.getId();
 
-        switch (id)
-        {
-            case R.id.img_LoginBack:
-            case R.id.btn_back:
-                startActivity(new Intent(TurbidityScreen.this,DashboardScreen.class));
-                finish();
-                break;
+        if(id == R.id.img_LoginBack || id == R.id.btn_back){
+            startActivity(new Intent(TurbidityScreen.this,DashboardScreen.class));
+            finish();
         }
 
 

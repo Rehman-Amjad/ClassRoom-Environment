@@ -102,13 +102,9 @@ public class SolidsScreen extends AppCompatActivity implements View.OnClickListe
     {
         int id =view.getId();
 
-        switch (id)
-        {
-            case R.id.img_LoginBack:
-            case R.id.btn_back:
-                startActivity(new Intent(SolidsScreen.this,DashboardScreen.class));
-                finish();
-                break;
+        if(id == R.id.img_LoginBack || id == R.id.btn_back){
+            startActivity(new Intent(SolidsScreen.this,DashboardScreen.class));
+            finish();
         }
 
 

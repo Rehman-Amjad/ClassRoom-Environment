@@ -102,13 +102,10 @@ public class TemperatureScreen extends AppCompatActivity implements View.OnClick
     {
         int id =view.getId();
 
-        switch (id)
-        {
-            case R.id.img_LoginBack:
-            case R.id.btn_back:
-                startActivity(new Intent(TemperatureScreen.this,DashboardScreen.class));
-                finish();
-                break;
+
+        if(id == R.id.img_LoginBack || id == R.id.btn_back){
+            startActivity(new Intent(TemperatureScreen.this,DashboardScreen.class));
+            finish();
         }
 
 
