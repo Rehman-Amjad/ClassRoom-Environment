@@ -61,7 +61,7 @@
             android:padding="10dp"
             android:paddingBottom="5dp"
             android:textAlignment="center"
-            android:text="IOT Based Optimal Plant Growth in Smart Hydroponics System"
+            android:text="Automatic System Design For Vertical Farming using IoT"
             android:textColor="@color/Dark_Orange"
             android:textSize="15sp" />
 
