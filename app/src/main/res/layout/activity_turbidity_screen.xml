@@ -9,7 +9,7 @@
     <RelativeLayout
         android:id="@+id/topLayout"
         android:layout_width="match_parent"
-        android:layout_height="140dp"
+        android:layout_height="100dp"
         android:paddingLeft="25dp"
         android:paddingRight="25dp"
         android:paddingTop="25dp"
@@ -32,56 +32,47 @@
             android:layout_below="@+id/img_LoginBack"
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="25dp"
             android:fontFamily="sans-serif-black"
-            android:text="Turbidity Sensor"
+            android:text="Fan Speed"
             android:textColor="@color/white"
             android:textSize="28sp" />
     </RelativeLayout>
 
     <ImageView
-        android:id="@+id/img1"
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_below="@id/topLayout"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="-6dp"
-        android:layout_marginEnd="83dp"
-        android:layout_marginRight="100dp"
-        android:src="@drawable/backgroun_icon" />
-
-    <ImageView
         android:id="@+id/img"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_below="@+id/img1"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_below="@+id/topLayout"
         android:layout_centerInParent="true"
-        android:src="@drawable/imgturbidity" />
+        android:src="@drawable/fan_speed" />
 
-    <ImageView
-        android:id="@+id/img2"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
-        android:layout_below="@+id/img"
-        android:layout_alignParentLeft="true"
-        android:layout_marginLeft="70dp"
-        android:layout_marginTop="40dp"
-        android:src="@drawable/turbidity" />
-
-    <TextView
-        android:id="@+id/tv_value"
+    <Button
+        android:id="@+id/btnSpeedSlow"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@+id/img2"
         android:layout_below="@+id/img"
-        android:text=""
-        android:textSize="14sp"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:text="Slow Speed" />
 
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="20dp"
-        android:textColor="@color/Dark_Orange"
-        android:textStyle="bold"
-        />
+    <Button
+        android:id="@+id/btnSpeedVerySlow"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSpeedSlow"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:text="Very Slow Speed" />
+
+    <Button
+        android:id="@+id/btnAutoSpeed"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/btnSpeedVerySlow"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="20dp"
+        android:text="Auto Speed" />
+
 
     <ImageView
         android:id="@+id/img3"
@@ -91,7 +82,7 @@
         android:src="@drawable/ic_date"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="70dp"
-        android:layout_below="@+id/img2"
+        android:layout_below="@+id/btnAutoSpeed"
         />
 
     <TextView
@@ -99,7 +90,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/img3"
-        android:layout_below="@+id/img2"
+        android:layout_below="@+id/btnAutoSpeed"
         android:text=""
         android:textSize="14sp"
         android:layout_marginTop="25dp"

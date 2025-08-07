@@ -49,7 +49,10 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
 
         holder.tvId.setText("ID: " + user.getId());
         holder.tvATemp_Sensor.setText("Temperature: " + user.getTemp() +"C");
-        holder.tv_solids.setText("TDS Sensor: " + user.getId());
+        holder.tv_solids.setText("TDS Sensor: " + user.getFan());
+        holder.tv_solids.setText("Humidity" + user.getHumidity() + "%");
+        holder.tv_solids.setText("LDR" + user.getLDR());
+        holder.tv_solids.setText("Smoke" + user.getSmoke());
         holder.tv_date.setText("Date: " + user.getDated());
         holder.tv_time.setText("Time: " + user.getTimed());
 

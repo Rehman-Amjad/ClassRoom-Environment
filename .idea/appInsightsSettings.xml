@@ -23,9 +23,9 @@
               <option name="connection">
                 <ConnectionSetting>
                   <option name="appId" value="com.example.smartwaterqualitymonitoringsystem" />
-                  <option name="mobileSdkAppId" value="1:238074811885:android:9133902bb6721ecbb503e4" />
-                  <option name="projectId" value="smart-hydroponics-system-6270d" />
-                  <option name="projectNumber" value="238074811885" />
+                  <option name="mobileSdkAppId" value="1:747406214257:android:7a3612d1c159beeeb4c7d0" />
+                  <option name="projectId" value="smartclassroom-e1095" />
+                  <option name="projectNumber" value="747406214257" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />

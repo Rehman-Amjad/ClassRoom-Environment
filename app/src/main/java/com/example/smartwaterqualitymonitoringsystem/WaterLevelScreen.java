@@ -44,7 +44,7 @@ public class WaterLevelScreen extends AppCompatActivity implements View.OnClickL
     private void showDataFormFirebse()
     {
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("CurrentData");
+        myRef = database.getReference("CurrentRoomData");
         DatabaseReference callref=myRef.child("1000");
 
         myRef.addChildEventListener(new ChildEventListener() {
@@ -52,25 +52,20 @@ public class WaterLevelScreen extends AppCompatActivity implements View.OnClickL
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                value = snapshot.child("Waterlavel").getValue(String.class);
+                value = snapshot.child("LDR").getValue(String.class);
                 time = snapshot.child("Timed").getValue(String.class);
                 date = snapshot.child("Dated").getValue(String.class);
 
 
                 if (value.equals("0"))
                 {
-                    img.setImageResource(R.drawable.low);
-                    tv_value.setText("Water Tank is low level");
-                    gifImageView.setVisibility(View.VISIBLE);
-                    Glide.with(WaterLevelScreen.this)
-                            .asGif()  // Indicate that we are loading a GIF
-                            .load(R.drawable.warning)  // Replace with your actual drawable resource name
-                            .into(gifImageView);
+                    tv_value.setText("No Needs light");
+                    gifImageView.setVisibility(View.GONE);
 
                 }else if (value.equals("1"))
                 {
                     img.setImageResource(R.drawable.normal);
-                    tv_value.setText("Water Tank is high level");
+                    tv_value.setText("light on in room");
                     gifImageView.setVisibility(View.GONE);
                 }
                 img.setVisibility(View.VISIBLE);

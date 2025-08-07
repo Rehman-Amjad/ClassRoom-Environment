@@ -34,7 +34,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="25dp"
             android:fontFamily="sans-serif-black"
-            android:text="Temperature"
+            android:text="TDS Sensor"
             android:textColor="@color/white"
             android:textSize="28sp" />
     </RelativeLayout>
@@ -52,16 +52,17 @@
 
     <ImageView
         android:id="@+id/img"
-        android:layout_width="200dp"
+        android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_below="@+id/img1"
         android:layout_centerInParent="true"
-        android:src="@drawable/imgtemperature" />
+        android:src="@drawable/classroom" />
 
     <ImageView
         android:id="@+id/img2"
         android:layout_width="30dp"
         android:layout_height="30dp"
+        android:visibility="gone"
         android:layout_marginTop="40dp"
         android:src="@drawable/temperature"
         android:layout_alignParentLeft="true"
@@ -75,11 +76,10 @@
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/img2"
         android:layout_below="@+id/img"
-        android:text=""
-        android:textSize="14sp"
-
+        android:text="hello"
+        android:textSize="18sp"
         android:layout_marginTop="50dp"
-        android:layout_marginLeft="20dp"
+        android:layout_marginLeft="60dp"
         android:textColor="@color/Dark_Orange"
         android:textStyle="bold"
         />
@@ -92,7 +92,7 @@
         android:src="@drawable/ic_date"
         android:layout_alignParentLeft="true"
         android:layout_marginLeft="70dp"
-        android:layout_below="@+id/img2"
+        android:layout_below="@+id/tv_value"
         />
 
     <TextView

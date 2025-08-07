@@ -61,7 +61,7 @@
             android:padding="10dp"
             android:paddingBottom="5dp"
             android:textAlignment="center"
-            android:text="Automatic System Design For Vertical Farming using IoT"
+            android:text="IOT Based Smart Classroom Environmental Monitoring and Automation"
             android:textColor="@color/Dark_Orange"
             android:textSize="15sp" />
 
@@ -129,7 +129,7 @@
                        <TextView
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
-                           android:text="Class Room"
+                           android:text="TDS Sensor"
                            android:textAlignment="center"
                            android:layout_gravity="center"
                            android:padding="10dp"
@@ -176,7 +176,7 @@
                        <TextView
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
-                           android:text="TDS Sensor"
+                           android:text="Temperature"
                            android:textAlignment="center"
                            android:layout_gravity="center"
                            android:padding="10dp"
@@ -218,7 +218,7 @@
                    android:layout_marginStart="20dp"
                    android:layout_marginEnd="10dp"
                    app:cardCornerRadius="12dp"
-                   android:visibility="gone"
+                   android:visibility="visible"
                    android:layout_weight="1"
                    >
 
@@ -238,7 +238,7 @@
                        <TextView
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
-                           android:text="Turbidity Sensor"
+                           android:text="Fan Speed"
                            android:textAlignment="center"
                            android:layout_gravity="center"
                            android:padding="10dp"
@@ -285,7 +285,7 @@
                        <TextView
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
-                           android:text="Automatic Switch"
+                           android:text="Door"
                            android:textAlignment="center"
                            android:layout_gravity="center"
                            android:padding="10dp"

@@ -18,6 +18,8 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.Objects;
+
 public class TemperatureScreen extends AppCompatActivity implements View.OnClickListener{
 
     ImageView img_LoginBack;
@@ -44,7 +46,7 @@ public class TemperatureScreen extends AppCompatActivity implements View.OnClick
     private void showDataFormFirebse()
     {
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("CurrentData");
+        myRef = database.getReference("CurrentRoomData");
         DatabaseReference callref=myRef.child("1000");
 
         myRef.addChildEventListener(new ChildEventListener() {
@@ -52,11 +54,15 @@ public class TemperatureScreen extends AppCompatActivity implements View.OnClick
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                value = snapshot.child("TemperatureSensor").getValue(String.class);
+                value = snapshot.child("Fan").getValue(String.class);
                 time = snapshot.child("Timed").getValue(String.class);
                 date = snapshot.child("Dated").getValue(String.class);
 
-                tv_value.setText("Temperature: "+value + "C");
+                if(Objects.equals(value, "0")){
+                    tv_value.setText("Class is Empty");
+                }else{
+                    tv_value.setText("tudent are in classrooms");
+                }
                 tv_time.setText("Time: "+time);
                 tv_date.setText("Date: "+date);
 

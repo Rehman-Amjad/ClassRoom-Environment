@@ -26,12 +26,14 @@ import com.google.firebase.database.FirebaseDatabase;
 public class PHSensorScreen extends AppCompatActivity implements View.OnClickListener {
 
     ImageView img_LoginBack;
-
-    Button btn_back;
+    TextView tv_date,tv_time,tv_wait;
+    Button btn_back,btnOpen,btnClose;
     FirebaseDatabase database;
     DatabaseReference myRef;
+    private DatabaseReference fanRef;
 
-    CardView pumpOn_card,pumpOff_card,foodOff_card,foodOn_card;
+    String value,date,time;
+
 
 
 
@@ -40,63 +42,67 @@ public class PHSensorScreen extends AppCompatActivity implements View.OnClickLis
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_phsensor_screen);
 
+        fanRef = FirebaseDatabase.getInstance().getReference("Setvalues");
         initView();
-
-        database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("Automatic");
-
+        showDataFormFirebse();
 
 
         img_LoginBack.setOnClickListener(this::onClick);
-//        btn_back.setOnClickListener(this::onClick);
-
-        pumpOn_card.setOnClickListener(v -> {
-            saveDataResponse("PumpInfo","1","Pump is On");
-        });
-
-        pumpOff_card.setOnClickListener(v -> {
-            saveDataResponse("PumpInfo","0","Pump is Off");
-        });
-
-        foodOn_card.setOnClickListener(v -> {
-            saveDataResponse("TrayInfo","1","Food Tray is On");
-        });
-
-        foodOff_card.setOnClickListener(v -> {
-            saveDataResponse("TrayInfo","0","Food Tray is Off");
-        });
+        btn_back.setOnClickListener(this::onClick);
+        btnOpen.setOnClickListener(this::onClick);
+        btnClose.setOnClickListener(this::onClick);
     }
 
 
-    private void saveDataResponse(String path,String value,String message)
+    private void showDataFormFirebse()
     {
-        myRef.child(path)
-                .setValue(value).addOnCompleteListener(new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Void> task) {
-                        if (task.isSuccessful())
-                        {
-                            Toast.makeText(PHSensorScreen.this, message, Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(PHSensorScreen.this, "something went wrong", Toast.LENGTH_SHORT).show();
-                    }
-                });
+        database = FirebaseDatabase.getInstance();
+        myRef = database.getReference("CurrentData");
+        DatabaseReference callref=myRef.child("1000");
+
+        myRef.addChildEventListener(new ChildEventListener() {
+            @SuppressLint("SetTextI18n")
+            @Override
+            public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+
+                time = snapshot.child("Timed").getValue(String.class);
+                date = snapshot.child("Dated").getValue(String.class);
+
+                tv_time.setText("Time: "+time);
+                tv_date.setText("Date: "+date);
+
+                tv_wait.setVisibility(View.INVISIBLE);
+
+            }
+
+            @Override
+            public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            }
+
+            @Override
+            public void onChildRemoved(@NonNull DataSnapshot snapshot) {
+            }
+
+            @Override
+            public void onChildMoved(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {
+
+            }
+        });
     }
-
-
 
     private void initView()
     {
-//        btn_back=findViewById(R.id.btn_back);
+        btn_back=findViewById(R.id.btn_back);
         img_LoginBack=findViewById(R.id.img_LoginBack);
-        pumpOn_card = findViewById(R.id.pumpOn_card);
-        pumpOff_card = findViewById(R.id.pumpOff_card);
-        foodOff_card = findViewById(R.id.foodOff_card);
-        foodOn_card = findViewById(R.id.foodOn_card);
+        tv_date=findViewById(R.id.tv_date);
+        tv_time=findViewById(R.id.tv_time);
+        tv_wait=findViewById(R.id.tv_wait);
+        btnOpen = findViewById(R.id.btnSpeedSlow);
+        btnClose = findViewById(R.id.btnSpeedVerySlow);
     }
 
     @Override
@@ -107,6 +113,14 @@ public class PHSensorScreen extends AppCompatActivity implements View.OnClickLis
         if(id == R.id.img_LoginBack || id == R.id.btn_back){
             startActivity(new Intent(PHSensorScreen.this,DashboardScreen.class));
             finish();
+        }
+
+        if(id == R.id.btnSpeedSlow){
+            fanRef.child("Door").setValue("0");
+        }
+
+        if(id == R.id.btnSpeedVerySlow){
+            fanRef.child("Door").setValue("1");
         }
     }
 }

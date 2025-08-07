@@ -14,14 +14,14 @@
             android:layout_width="match_parent"
             android:layout_height="300dp"
             android:layout_marginTop="70dp"
-            android:src="@drawable/sp" />
+            android:src="@drawable/splash_calss" />
 
         <TextView
             android:id="@+id/tv_splash"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/sp_image"
-            android:text="Automatic System Design For Vertical Farming using IoT"
+            android:text="IOT Based Smart Classroom Environmental Monitoring and Automation"
             android:textAlignment="center"
             android:layout_marginTop="40dp"
             android:textColor="@color/Dark_Orange"
