@@ -48,23 +48,12 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
         User user=mlist.get(position);
 
         holder.tvId.setText("ID: " + user.getId());
-        holder.tvATemp_Sensor.setText("Temperature: " + user.getTemperatureSensor() +"C");
-        holder.tv_PHSensor.setText("PH Sensor: " + user.getPHSensor());
-        holder.tv_tubidity.setText("Turbidity Sensor: " + user.getTurbiditySensor());
+        holder.tvATemp_Sensor.setText("Temperature: " + user.getTemp() +"C");
         holder.tv_solids.setText("TDS Sensor: " + user.getId());
         holder.tv_date.setText("Date: " + user.getDated());
         holder.tv_time.setText("Time: " + user.getTimed());
 
         holder.tv_PHSensor.setVisibility(View.GONE);
-
-        if (user.getWaterlavel().equals("0"))
-        {
-            holder.tv_water.setText("Water Tank is low level" );
-        }else
-        {
-            holder.tv_water.setText("Water Tank is high level" );
-        }
-
 
 
     }

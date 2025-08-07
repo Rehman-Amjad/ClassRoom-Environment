@@ -3,28 +3,34 @@ package com.example.smartwaterqualitymonitoringsystem.Model;
 public class User
 {
     String Dated;
-    String Id;
-    String PHSensor;
-    String TDSSensor;
-    String TemperatureSensor;
+    String id;
+    String Fan;
+    String Humidity;
+    String LDR;
+    String RFID;
+    String Smoke;
+    String Temp;
     String Timed;
-    String TurbiditySensor;
-    String Waterlavel;
+    String img;
 
 
-    public User(String dated, String id, String PHSensor, String TDSSensor, String temperatureSensor, String timed, String turbiditySensor, String waterlavel) {
+    public User(String dated, String id, String fan, String humidity, String LDR, String RFID, String smoke, String temp, String timed, String img) {
         Dated = dated;
-        Id = id;
-        this.PHSensor = PHSensor;
-        this.TDSSensor = TDSSensor;
-        TemperatureSensor = temperatureSensor;
+        this.id = id;
+        Fan = fan;
+        Humidity = humidity;
+        this.LDR = LDR;
+        this.RFID = RFID;
+        Smoke = smoke;
+        Temp = temp;
         Timed = timed;
-        TurbiditySensor = turbiditySensor;
-        Waterlavel = waterlavel;
+        this.img = img;
     }
+
 
     public User() {
     }
+
 
     public String getDated() {
         return Dated;
@@ -35,35 +41,59 @@ public class User
     }
 
     public String getId() {
-        return Id;
+        return id;
     }
 
     public void setId(String id) {
-        Id = id;
+        this.id = id;
     }
 
-    public String getPHSensor() {
-        return PHSensor;
+    public String getFan() {
+        return Fan;
     }
 
-    public void setPHSensor(String PHSensor) {
-        this.PHSensor = PHSensor;
+    public void setFan(String fan) {
+        Fan = fan;
     }
 
-    public String getTDSSensor() {
-        return TDSSensor;
+    public String getHumidity() {
+        return Humidity;
     }
 
-    public void setTDSSensor(String TDSSensor) {
-        this.TDSSensor = TDSSensor;
+    public void setHumidity(String humidity) {
+        Humidity = humidity;
     }
 
-    public String getTemperatureSensor() {
-        return TemperatureSensor;
+    public String getLDR() {
+        return LDR;
     }
 
-    public void setTemperatureSensor(String temperatureSensor) {
-        TemperatureSensor = temperatureSensor;
+    public void setLDR(String LDR) {
+        this.LDR = LDR;
+    }
+
+    public String getRFID() {
+        return RFID;
+    }
+
+    public void setRFID(String RFID) {
+        this.RFID = RFID;
+    }
+
+    public String getSmoke() {
+        return Smoke;
+    }
+
+    public void setSmoke(String smoke) {
+        Smoke = smoke;
+    }
+
+    public String getTemp() {
+        return Temp;
+    }
+
+    public void setTemp(String temp) {
+        Temp = temp;
     }
 
     public String getTimed() {
@@ -74,19 +104,11 @@ public class User
         Timed = timed;
     }
 
-    public String getTurbiditySensor() {
-        return TurbiditySensor;
+    public String getImg() {
+        return img;
     }
 
-    public void setTurbiditySensor(String turbiditySensor) {
-        TurbiditySensor = turbiditySensor;
-    }
-
-    public String getWaterlavel() {
-        return Waterlavel;
-    }
-
-    public void setWaterlavel(String waterlavel) {
-        Waterlavel = waterlavel;
+    public void setImg(String img) {
+        this.img = img;
     }
 }
