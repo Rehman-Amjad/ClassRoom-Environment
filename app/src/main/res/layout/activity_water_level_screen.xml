@@ -34,7 +34,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="25dp"
             android:fontFamily="sans-serif-black"
-            android:text="Water Level"
+            android:text="Classroom Light Info"
             android:textColor="@color/white"
             android:textSize="28sp" />
     </RelativeLayout>
@@ -89,6 +89,20 @@
         android:layout_marginTop="40dp"
         android:src="@drawable/drops" />
 
+
+    <TextView
+        android:id="@+id/tv_value"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@+id/img2"
+        android:layout_below="@+id/llIng"
+        android:text=""
+        android:textSize="18sp"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="60dp"
+        android:textColor="@color/Dark_Orange"
+        android:textStyle="bold"
+        />
 
     <ImageView
         android:id="@+id/img3"

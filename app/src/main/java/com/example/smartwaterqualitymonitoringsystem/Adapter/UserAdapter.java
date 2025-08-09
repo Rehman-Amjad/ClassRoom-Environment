@@ -47,12 +47,27 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
         //  Glide.with(context).load(mlist.get(position).getImageUrl()).into(holder.imageView);
         User user=mlist.get(position);
 
+        byte[] decodedBytes =
+                Base64.decode(user.getImg(), Base64.DEFAULT);
+        Bitmap decodedBitmap = BitmapFactory.decodeByteArray(decodedBytes, 0, decodedBytes.length);
+        holder.img.setImageBitmap(decodedBitmap);
+
         holder.tvId.setText("ID: " + user.getId());
         holder.tvATemp_Sensor.setText("Temperature: " + user.getTemp() +"C");
         holder.tv_solids.setText("TDS Sensor: " + user.getFan());
         holder.tv_solids.setText("Humidity" + user.getHumidity() + "%");
-        holder.tv_solids.setText("LDR" + user.getLDR());
-        holder.tv_solids.setText("Smoke" + user.getSmoke());
+        if(user.getLDR().equals("1")){
+            holder.tv_solids.setText("LDR: " + "Need Lights in classroom");
+        }else{
+            holder.tv_solids.setText("LDR: " + "No Need Lights in classroom");
+        }
+
+        if(Integer.parseInt(user.getSmoke()) > 50){
+            holder.tv_solids.setText("Smoke: " + "More pollution");
+        }else{
+            holder.tv_solids.setText("Smoke: " + "Normal pollution");
+        }
+
         holder.tv_date.setText("Date: " + user.getDated());
         holder.tv_time.setText("Time: " + user.getTimed());
 
@@ -71,9 +86,9 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
 
         TextView tvId,tvATemp_Sensor,tv_PHSensor,tv_tubidity,tv_solids,tv_time,tv_date,tv_water;
 
+        ImageView img;
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
-
 
             tvId=itemView.findViewById(R.id.tvId);
             tvATemp_Sensor=itemView.findViewById(R.id.tvATemp_Sensor);
@@ -83,6 +98,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.MyViewHolder> 
             tv_time=itemView.findViewById(R.id.tv_time);
             tv_date=itemView.findViewById(R.id.tv_date);
             tv_water=itemView.findViewById(R.id.tv_water);
+            img=itemView.findViewById(R.id.img);
 
         }
     }

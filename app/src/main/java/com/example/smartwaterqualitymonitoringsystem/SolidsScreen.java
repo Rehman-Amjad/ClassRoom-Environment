@@ -12,6 +12,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -130,7 +131,7 @@ public class SolidsScreen extends AppCompatActivity implements View.OnClickListe
         myRef = database.getReference("Setvalues");
 
         String temp = ed_temp.getText().toString();
-        String humidity = ed_temp.getText().toString();
+        String humidity = ed_humidity.getText().toString();
 
         if(temp.isEmpty()){
 
@@ -143,6 +144,8 @@ public class SolidsScreen extends AppCompatActivity implements View.OnClickListe
         }else{
             myRef.child("SetHumidityValue").setValue(humidity);
         }
+
+        Toast.makeText(this, "Value Saved", Toast.LENGTH_SHORT).show();
 
 
 

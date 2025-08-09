@@ -34,9 +34,9 @@
             android:layout_alignParentLeft="true"
             android:layout_marginLeft="10dp"
             android:fontFamily="sans-serif-black"
-            android:text="Temperature Sensor"
+            android:text="Classroom Environemnt Temperature"
             android:textColor="@color/white"
-            android:textSize="28sp" />
+            android:textSize="20sp" />
     </RelativeLayout>
 
 
@@ -111,7 +111,7 @@
         android:layout_centerInParent="true"
         android:layout_marginTop="10dp"
         android:layout_gravity="center"
-        android:text="back" />
+        android:text="Save" />
 
     <LinearLayout
         android:layout_width="match_parent"

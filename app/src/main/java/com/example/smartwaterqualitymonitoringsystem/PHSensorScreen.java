@@ -8,6 +8,7 @@ import androidx.cardview.widget.CardView;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -51,13 +52,16 @@ public class PHSensorScreen extends AppCompatActivity implements View.OnClickLis
         btn_back.setOnClickListener(this::onClick);
         btnOpen.setOnClickListener(this::onClick);
         btnClose.setOnClickListener(this::onClick);
+
+
+        btnClose.setVisibility(View.GONE);
     }
 
 
     private void showDataFormFirebse()
     {
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("CurrentData");
+        myRef = database.getReference("CurrentRoomData");
         DatabaseReference callref=myRef.child("1000");
 
         myRef.addChildEventListener(new ChildEventListener() {
@@ -116,11 +120,21 @@ public class PHSensorScreen extends AppCompatActivity implements View.OnClickLis
         }
 
         if(id == R.id.btnSpeedSlow){
-            fanRef.child("Door").setValue("0");
+            fanRef.child("Door").setValue("1");
+            Toast.makeText(this, "Door Open", Toast.LENGTH_SHORT).show();
+            new Handler().postDelayed(new Runnable() {
+                @Override
+                public void run() {
+
+                    fanRef.child("Door").setValue("0");
+                }
+            },5000);
+            Toast.makeText(this, "Door Close", Toast.LENGTH_SHORT).show();
         }
 
         if(id == R.id.btnSpeedVerySlow){
-            fanRef.child("Door").setValue("1");
+            fanRef.child("Door").setValue("0");
+            Toast.makeText(this, "Door Close", Toast.LENGTH_SHORT).show();
         }
     }
 }

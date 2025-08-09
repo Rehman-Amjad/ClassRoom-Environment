@@ -11,6 +11,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -50,7 +51,7 @@ public class TurbidityScreen extends AppCompatActivity
     private void showDataFormFirebse()
     {
         database = FirebaseDatabase.getInstance();
-        myRef = database.getReference("CurrentData");
+        myRef = database.getReference("CurrentRoomData");
         DatabaseReference callref=myRef.child("1000");
 
         myRef.addChildEventListener(new ChildEventListener() {
@@ -113,18 +114,21 @@ public class TurbidityScreen extends AppCompatActivity
         }
 
         if(id == R.id.btnSpeedSlow){
-            fanRef.child("FanSpeed").setValue("8");
-            fanRef.child("AutoSpeed\n").setValue("1");
+            fanRef.child("FanSpeed").setValue("7");
+            fanRef.child("AutoSpeed").setValue("1");
+            Toast.makeText(this, "Fan Speed Slow", Toast.LENGTH_SHORT).show();
         }
 
         if(id == R.id.btnSpeedVerySlow){
-            fanRef.child("FanSpeed").setValue("7");
-            fanRef.child("AutoSpeed\n").setValue("1");
+            fanRef.child("FanSpeed").setValue("8");
+            fanRef.child("AutoSpeed").setValue("1");
+            Toast.makeText(this, "Fan Speed very Slow", Toast.LENGTH_SHORT).show();
         }
 
         if(id == R.id.btnAutoSpeed){
             fanRef.child("FanSpeed").setValue("0");
-            fanRef.child("AutoSpeed\n").setValue("0");
+            fanRef.child("AutoSpeed").setValue("0");
+            Toast.makeText(this, "Fan Auto Speed", Toast.LENGTH_SHORT).show();
         }
 
 

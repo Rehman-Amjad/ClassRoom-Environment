@@ -1,9 +1,5 @@
 package com.example.smartwaterqualitymonitoringsystem;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
@@ -12,14 +8,21 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
+import androidx.activity.EdgeToEdge;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.graphics.Insets;
+import androidx.core.view.ViewCompat;
+import androidx.core.view.WindowInsetsCompat;
+
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class WaterLevelScreen extends AppCompatActivity implements View.OnClickListener {
+public class SmokeSensorActivity extends AppCompatActivity implements View.OnClickListener{
 
     ImageView img_LoginBack,img,gifImageView;
     TextView tv_value,tv_date,tv_time,tv_wait;
@@ -29,16 +32,19 @@ public class WaterLevelScreen extends AppCompatActivity implements View.OnClickL
 
     String value,date,time;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_water_level_screen);
+        EdgeToEdge.enable(this);
+        setContentView(R.layout.activity_smoke_sensor);
 
         initView();
         showDataFormFirebse();
 
         img_LoginBack.setOnClickListener(this::onClick);
         btn_back.setOnClickListener(this::onClick);
+
     }
 
     private void showDataFormFirebse()
@@ -52,19 +58,20 @@ public class WaterLevelScreen extends AppCompatActivity implements View.OnClickL
             @Override
             public void onChildAdded(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
 
-                value = snapshot.child("LDR").getValue(String.class);
+                value = snapshot.child("Smoke").getValue(String.class);
                 time = snapshot.child("Timed").getValue(String.class);
                 date = snapshot.child("Dated").getValue(String.class);
 
 
-                if (value.equals("0"))
+                int checkValue = Integer.parseInt(value);
+
+                if (checkValue > 50)
                 {
-                    tv_value.setText("No Needs light");
+                    tv_value.setText(value+" More Pollution in Classroom");
                     gifImageView.setVisibility(View.GONE);
 
-                }else if (value.equals("1")) {
-                    img.setImageResource(R.drawable.normal);
-                    tv_value.setText("light on in room");
+                }else {
+                    tv_value.setText(value+" Normal Pollution in Classroom");
                     gifImageView.setVisibility(View.GONE);
                 }
                 img.setVisibility(View.VISIBLE);
@@ -77,21 +84,23 @@ public class WaterLevelScreen extends AppCompatActivity implements View.OnClickL
 
             }
 
+            @SuppressLint("SetTextI18n")
             @Override
             public void onChildChanged(@NonNull DataSnapshot snapshot, @Nullable String previousChildName) {
-                value = snapshot.child("LDR").getValue(String.class);
+                value = snapshot.child("Smoke").getValue(String.class);
                 time = snapshot.child("Timed").getValue(String.class);
                 date = snapshot.child("Dated").getValue(String.class);
 
 
-                if (value.equals("0"))
+                int checkValue = Integer.parseInt(value);
+
+                if (checkValue > 50)
                 {
-                    tv_value.setText("No Needs light");
+                    tv_value.setText(value+" More Pollution in Classroom");
                     gifImageView.setVisibility(View.GONE);
 
-                }else if (value.equals("1")) {
-                    img.setImageResource(R.drawable.normal);
-                    tv_value.setText("light on in room");
+                }else {
+                    tv_value.setText(value+" Normal Pollution in Classroom");
                     gifImageView.setVisibility(View.GONE);
                 }
                 img.setVisibility(View.VISIBLE);
@@ -137,7 +146,7 @@ public class WaterLevelScreen extends AppCompatActivity implements View.OnClickL
         int id =view.getId();
 
         if(id == R.id.img_LoginBack || id == R.id.btn_back){
-            startActivity(new Intent(WaterLevelScreen.this,DashboardScreen.class));
+            startActivity(new Intent(SmokeSensorActivity.this,DashboardScreen.class));
             finish();
         }
 

@@ -23,7 +23,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 public class DashboardScreen extends AppCompatActivity implements View.OnClickListener {
 
-    CardView cardTemperature,cardSolids,cardTubidity,cardPHSensor,tv_history,cardWater,card_delete;
+    CardView cardTemperature,cardSolids,cardTubidity,cardPHSensor,tv_history,cardWater,card_delete,tv_environment;
     ImageView img_logout;
     FirebaseDatabase database;
     DatabaseReference myRef;
@@ -47,6 +47,7 @@ public class DashboardScreen extends AppCompatActivity implements View.OnClickLi
         tv_history.setOnClickListener(this::onClick);
         cardWater.setOnClickListener(this::onClick);
         card_delete.setOnClickListener(this::onClick);
+        tv_environment.setOnClickListener(this::onClick);
 
 
     }
@@ -61,6 +62,7 @@ public class DashboardScreen extends AppCompatActivity implements View.OnClickLi
         tv_history=findViewById(R.id.tv_history);
         cardWater=findViewById(R.id.cardWater);
         card_delete=findViewById(R.id.card_delete);
+        tv_environment=findViewById(R.id.tv_environment);
     }
 
     @SuppressLint("NonConstantResourceId")
@@ -80,7 +82,10 @@ public class DashboardScreen extends AppCompatActivity implements View.OnClickLi
             startActivity(new Intent(DashboardScreen.this,PHSensorScreen.class));
         }else if(id == R.id.cardWater){
             startActivity(new Intent(DashboardScreen.this,WaterLevelScreen.class));
-        }else if(id == R.id.tv_history){
+        }else if(id == R.id.tv_environment){
+            startActivity(new Intent(DashboardScreen.this,SmokeSensorActivity.class));
+        }
+        else if(id == R.id.tv_history){
             startActivity(new Intent(DashboardScreen.this,ShowAllDataScreen.class));
         }else if(id == R.id.card_delete){
             deleteData();

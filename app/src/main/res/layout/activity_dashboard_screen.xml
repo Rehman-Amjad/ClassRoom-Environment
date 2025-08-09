@@ -129,7 +129,7 @@
                        <TextView
                            android:layout_width="wrap_content"
                            android:layout_height="wrap_content"
-                           android:text="TDS Sensor"
+                           android:text="Classroom Student Info"
                            android:textAlignment="center"
                            android:layout_gravity="center"
                            android:padding="10dp"
@@ -176,13 +176,12 @@
                        <TextView
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
-                           android:text="Temperature"
+                           android:text="Classroom Environemnt Temperature"
                            android:textAlignment="center"
                            android:layout_gravity="center"
                            android:padding="10dp"
                            android:textColor="@color/Dark_Orange"
                            android:textStyle="bold"
-                           android:singleLine="true"
                            android:layout_weight="1"
                            android:textSize="16sp"
                            />
@@ -238,7 +237,7 @@
                        <TextView
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
-                           android:text="Fan Speed"
+                           android:text="Classroom Air Monitering"
                            android:textAlignment="center"
                            android:layout_gravity="center"
                            android:padding="10dp"
@@ -285,7 +284,7 @@
                        <TextView
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
-                           android:text="Door"
+                           android:text="Classroom Door Control"
                            android:textAlignment="center"
                            android:layout_gravity="center"
                            android:padding="10dp"
@@ -345,7 +344,7 @@
                        <TextView
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
-                           android:text="Water Level"
+                           android:text="Classroom Light Info"
                            android:textAlignment="center"
                            android:layout_gravity="center"
                            android:padding="10dp"
@@ -359,7 +358,7 @@
                </androidx.cardview.widget.CardView>
 
                <androidx.cardview.widget.CardView
-                   android:id="@+id/tv_history"
+                   android:id="@+id/tv_environment"
                    android:layout_width="match_parent"
                    android:layout_height="wrap_content"
                    app:cardElevation="5dp"
@@ -391,7 +390,103 @@
                        <TextView
                            android:layout_width="match_parent"
                            android:layout_height="wrap_content"
+                           android:text="Classroom Environment Control"
+                           android:textAlignment="center"
+                           android:layout_gravity="center"
+                           android:padding="10dp"
+                           android:textColor="@color/Dark_Orange"
+                           android:textStyle="bold"
+                           android:textSize="16sp"
+                           />
+                   </LinearLayout>
+               </androidx.cardview.widget.CardView>
+
+           </LinearLayout>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="horizontal"
+               android:layout_below="@+id/ll_bott"
+               android:layout_marginTop="10dp"
+               android:weightSum="2"
+               >
+
+               <androidx.cardview.widget.CardView
+                   android:id="@+id/tv_history"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   app:cardElevation="5dp"
+                   android:paddingTop="20dp"
+                   android:paddingRight="10dp"
+                   android:paddingLeft="10dp"
+                   android:paddingBottom="10dp"
+                   android:layout_marginTop="10dp"
+                   android:layout_marginStart="20dp"
+                   android:layout_marginEnd="10dp"
+                   app:cardCornerRadius="12dp"
+                   android:layout_weight="1"
+                   >
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:orientation="vertical"
+                       >
+
+                       <ImageView
+                           android:layout_width="50dp"
+                           android:layout_height="50dp"
+                           android:layout_gravity="center"
+                           android:layout_marginTop="10dp"
+                           android:src="@drawable/history"
+                           />
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
                            android:text="History"
+                           android:textAlignment="center"
+                           android:layout_gravity="center"
+                           android:padding="10dp"
+                           android:textColor="@color/Dark_Orange"
+                           android:textStyle="bold"
+                           android:textSize="16sp"
+                           />
+                   </LinearLayout>
+               </androidx.cardview.widget.CardView>
+
+               <androidx.cardview.widget.CardView
+                   android:id="@+id/card_delete"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   app:cardElevation="5dp"
+                   android:paddingTop="20dp"
+                   android:paddingBottom="10dp"
+                   android:layout_marginTop="10dp"
+                   android:layout_marginStart="10dp"
+                   android:layout_marginEnd="10dp"
+                   app:cardCornerRadius="12dp"
+                   android:layout_weight="1"
+                   >
+
+                   <LinearLayout
+                       android:layout_width="match_parent"
+                       android:layout_height="match_parent"
+                       android:orientation="vertical"
+                       >
+                       <ImageView
+                           android:layout_width="50dp"
+                           android:layout_height="50dp"
+                           android:layout_gravity="center"
+                           android:layout_marginTop="10dp"
+                           android:src="@drawable/baseline_delete_forever_24"
+                           app:tint="@color/Dark_Orange" />
+
+                       <TextView
+                           android:layout_width="match_parent"
+                           android:layout_height="wrap_content"
+                           android:text="Delete History"
                            android:textAlignment="center"
                            android:layout_gravity="center"
                            android:padding="10dp"
@@ -402,60 +497,10 @@
                    </LinearLayout>
 
 
-
-
-
                </androidx.cardview.widget.CardView>
-
 
            </LinearLayout>
 
-
-           <androidx.cardview.widget.CardView
-               android:id="@+id/card_delete"
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"
-               app:cardElevation="5dp"
-               android:paddingTop="20dp"
-               android:paddingRight="10dp"
-               android:paddingLeft="10dp"
-               android:paddingBottom="10dp"
-               android:layout_marginTop="20dp"
-               android:layout_marginStart="20dp"
-               android:layout_marginEnd="10dp"
-               android:layout_below="@+id/ll_bott"
-               app:cardCornerRadius="12dp"
-               android:layout_weight="1"
-               >
-
-               <LinearLayout
-                   android:layout_width="match_parent"
-                   android:layout_height="match_parent"
-                   android:orientation="vertical"
-                   >
-                   <ImageView
-                       android:layout_width="50dp"
-                       android:layout_height="50dp"
-                       android:layout_gravity="center"
-                       android:layout_marginTop="10dp"
-                       android:src="@drawable/baseline_delete_forever_24"
-                       app:tint="@color/Dark_Orange" />
-
-                   <TextView
-                       android:layout_width="match_parent"
-                       android:layout_height="wrap_content"
-                       android:text="Delete History"
-                       android:textAlignment="center"
-                       android:layout_gravity="center"
-                       android:padding="10dp"
-                       android:textColor="@color/Dark_Orange"
-                       android:textStyle="bold"
-                       android:textSize="16sp"
-                       />
-               </LinearLayout>
-
-
-           </androidx.cardview.widget.CardView>
 
        </RelativeLayout>
 

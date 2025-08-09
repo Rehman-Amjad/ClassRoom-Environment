@@ -34,7 +34,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginTop="25dp"
             android:fontFamily="sans-serif-black"
-            android:text="TDS Sensor"
+            android:text="Classroom Student Info"
             android:textColor="@color/white"
             android:textSize="28sp" />
     </RelativeLayout>
@@ -100,7 +100,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@+id/img3"
-        android:layout_below="@+id/img2"
+        android:layout_below="@+id/tv_value"
         android:text=""
         android:textSize="14sp"
         android:layout_marginTop="25dp"
